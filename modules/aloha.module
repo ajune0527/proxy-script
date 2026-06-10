@@ -1,0 +1,13 @@
+#!name=Aloha浏览器
+#!desc=Aloha VPN浏览器会员解锁
+#!icon=https://raw.githubusercontent.com/deezertidal/private/main/icons/aloha.png
+
+[Rule]
+DOMAIN-SUFFIX,alohaprofile.com,PROXY
+
+[Rewrite]
+# Aloha浏览器会员解锁
+^https://api\.alohaprofile\.com/v1/profile_info https://raw.githubusercontent.com/ajune0527/proxy-script/main/js/aloha.js 307
+
+[MITM]
+hostname = %APPEND% api.alohaprofile.com

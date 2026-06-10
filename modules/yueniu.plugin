@@ -1,0 +1,13 @@
+#!name = 约牛 Token 自动获取
+#!desc = 自动抓取 touguapi.zx093.com 请求头中的 centraltoken 并持久化到本地本地变量 yueniu 中。
+#!author = AI Collaborator
+#!homepage = https://github.com
+#!icon = https://raw.githubusercontent.com/luestr/Icon-set/main/App_icon/120px/Netease.png
+#!date = 2026-06-09
+
+[Script]
+# 拦截请求获取 Headers，注意替换你自己的远程 JS 地址
+http-request ^https?:\/\/touguapi\.zx093\.com script-path=https://raw.githubusercontent.com/ajune0527/proxy-script/main/js/yueniu.js, requires-body=false, tag=获取约牛Token
+
+[Mitm]
+hostname = touguapi.zx093.com

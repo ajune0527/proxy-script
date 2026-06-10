@@ -1,0 +1,7 @@
+DOMAIN-SUFFIX,gmail.com
+DOMAIN-SUFFIX,googlemail.com
+DOMAIN,imap.gmail.com
+DOMAIN,smtp.gmail.com
+DOMAIN,pop.gmail.com
+DOMAIN-SUFFIX,googleapis.com
+DOMAIN-SUFFIX,accounts.google.com

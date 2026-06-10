@@ -1,0 +1,3 @@
+URL-REGEX,^https?:\/\/kuaicha\.10jqka\.com\.cn\/open\/app\/v1\/news\/recommend\/user\/related_org_or_person
+URL-REGEX,^https?:\/\/fund\.10jqka\.com\.cn\/quotation\/website\/v1\/recommend\/news\/footer
+URL-REGEX,^https?:\/\/c\.10jqka\.com\.cn\/lgt\/common2c\/auth\/api\/ad_recommend

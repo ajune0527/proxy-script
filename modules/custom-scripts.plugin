@@ -1,0 +1,10 @@
+#!name=自定义脚本合集
+#!desc=电信抽奖 + 沉浸式翻译订阅修改
+#!icon=https://raw.githubusercontent.com/Orz-3/mini/master/Color/Script.png
+
+[Script]
+http-request ^https?:\/\/wxapp\.ha\.189\.cn script-path=telecom_lottery.js, timeout=60, tag=telecom_lottery
+http-response ^https?:\/\/api2\.immersivetranslate\.com\/v1\/user script-path=it_sub_crack.js, requires-body=true, timeout=20, tag=沉浸式翻译订阅修改
+
+[Mitm]
+hostname = %APPEND% api2.immersivetranslate.com
