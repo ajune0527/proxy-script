@@ -37,11 +37,11 @@ try {
     console.log("[同花顺过滤] 脚本开始执行");
     console.log("[同花顺过滤] 参数: " + JSON.stringify($argument));
     // 检查总开关
-    // if ($argument['enable']) {
-    //     console.log("[同花顺过滤] 总开关已关闭，跳过过滤");
-    //     $done({});
-    //     return;
-    // }
+    if ($argument['enable'] === 'false') {
+        console.log("[同花顺过滤] 总开关已关闭，跳过过滤");
+        $done({});
+        return;
+    }
 
     // 解析每个卡片标题的开关，收集需要过滤的标题
     var filterTitles = [];
@@ -62,7 +62,7 @@ try {
     if ($argument['自定义过滤']) {
         console.log("[同花顺过滤] 自定义过滤: " + $argument['自定义过滤']);
         let customFilter = $argument['自定义过滤'].split(',');
-        filterTitles.push(customFilter);
+        filterTitles = filterTitles.concat(customFilter);
     }
 
     console.log("[同花顺过滤] 过滤标题: " + JSON.stringify(filterTitles));

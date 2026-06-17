@@ -49,7 +49,7 @@ URL-REGEX,^https?://eq\.10jqka\.com\.cn/download/survey\.txt,REJECT
 URL-REGEX,^https?://eq\.10jqka\.com\.cn/operation/function/search_discovery/recommend/v1/list,REJECT
 
 [script]
-http-response ^https?://eq\.10jqka\.com\.cn/eq/open/api/homepage_v2/v3/(old_user|homepage_data) script-path=https://raw.githubusercontent.com/ajune0527/proxy-script/main/js/tonghuashun-filter.js, requires-body=true, tag=同花顺-首页卡片过滤, argument=[{enable},{炒股大赛},{k线训练营},{全球机会},{自选股概览},{AI自选诊断},{投顾分析},{投资必读},{主编精选},{实时热点},{热点复盘},{业绩披露},{并购重组},{自选大事},{热门股票},{资金流入},{热门板块},{每日复盘},{今天炒什么},{黄金},{涨停聚焦},{净利润断层}]
+http-response ^https?://eq\.10jqka\.com\.cn/eq/open/api/homepage_v2/v3/(old_user|homepage_data) script-path=https://raw.githubusercontent.com/ajune0527/proxy-script/main/js/tonghuashun-filter.js, requires-body=true, tag=同花顺-首页卡片过滤, argument=[{enable},{炒股大赛},{k线训练营},{全球机会},{自选股概览},{AI自选诊断},{投顾分析},{投资必读},{主编精选},{实时热点},{热点复盘},{业绩披露},{并购重组},{自选大事},{热门股票},{资金流入},{热门板块},{每日复盘},{今天炒什么},{黄金},{涨停聚焦},{净利润断层},{自定义过滤}]
 
 [mitm]
 hostname = recommend.10jqka.com.cn, t.10jqka.com.cn, kuaicha.10jqka.com.cn, xtz.10jqka.com.cn, eq.10jqka.com.cn
