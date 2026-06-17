@@ -1,7 +1,7 @@
 /**
  * 同花顺首页卡片过滤脚本
  *
- * 功能：根据 card_title 过滤 homepage_v2/v3/old_user 响应中的卡片
+ * 功能：根据 card_title 过滤首页响应中的卡片（支持 old_user 与 homepage_data 端点）
  * 每个卡片标题独立 switch 开关，通过 Loon [Argument] 段配置
  *
  * Loon 参数传递：argument=[{enable},{炒股大赛},{k线训练营},...]
@@ -25,18 +25,23 @@ var ALL_CARD_TITLES = [
     "自选大事",
     "热门股票",
     "资金流入",
-    "热门板块"
+    "热门板块",
+    "每日复盘",
+    "今天炒什么",
+    "黄金",
+    "涨停聚焦",
+    "净利润断层"
 ];
 
 try {
     console.log("[同花顺过滤] 脚本开始执行");
     console.log("[同花顺过滤] 参数: " + JSON.stringify($argument));
     // 检查总开关
-    // if ($argument.enable) {
-    //     console.log("[同花顺过滤] 总开关已关闭，跳过过滤");
-    //     $done({});
-    //     return;
-    // }
+    if ($argument['enable']) {
+        console.log("[同花顺过滤] 总开关已关闭，跳过过滤");
+        $done({});
+        return;
+    }
 
     // 解析每个卡片标题的开关，收集需要过滤的标题
     var filterTitles = [];
@@ -45,11 +50,19 @@ try {
             filterTitles.push(title);
         }
     });
+    console.log("[同花顺过滤] 过滤标题: " + JSON.stringify(filterTitles));
 
     if (filterTitles.length === 0) {
         console.log("[同花顺过滤] 未开启任何卡片过滤，跳过");
         $done({});
         return;
+    }
+
+    // 如果自定义有内容
+    if ($argument['自定义过滤']) {
+        console.log("[同花顺过滤] 自定义过滤: " + $argument['自定义过滤']);
+        let customFilter = $argument['自定义过滤'].split(',');
+        filterTitles.push(customFilter);
     }
 
     console.log("[同花顺过滤] 过滤标题: " + JSON.stringify(filterTitles));

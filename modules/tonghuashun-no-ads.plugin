@@ -26,6 +26,14 @@ AI自选诊断 = switch,false,tag=AI自选诊断,desc=过滤首页「AI自选诊
 热门股票 = switch,false,tag=热门股票,desc=过滤首页「热门股票」卡片
 资金流入 = switch,false,tag=资金流入,desc=过滤首页「资金流入」卡片
 热门板块 = switch,false,tag=热门板块,desc=过滤首页「热门板块」卡片
+每日复盘 = switch,false,tag=每日复盘,desc=过滤首页「每日复盘」卡片
+今天炒什么 = switch,false,tag=今天炒什么,desc=过滤首页「今天炒什么」卡片
+黄金 = switch,false,tag=黄金,desc=过滤首页「黄金」卡片
+涨停聚焦 = switch,false,tag=涨停聚焦,desc=过滤首页「涨停聚焦」卡片
+净利润断层 = switch,false,tag=净利润断层,desc=过滤首页「净利润断层」卡片
+# 自定义过滤卡片，多个卡片用逗号分隔
+自定义过滤 = input, "自定义过滤卡片，多个卡片用逗号分隔", tag=自定义过滤,desc=自定义过滤卡片，多个卡片用逗号分隔
+
 
 [rule]
 # 拦截推荐流
@@ -42,7 +50,7 @@ URL-REGEX,^https?://eq\.10jqka\.com\.cn/download/survey\.txt,REJECT
 URL-REGEX,^https?://eq\.10jqka\.com\.cn/operation/function/search_discovery/recommend/v1/list,REJECT
 
 [script]
-http-response ^https?://eq\.10jqka\.com\.cn/eq/open/api/homepage_v2/v3/old_user script-path=https://raw.githubusercontent.com/ajune0527/proxy-script/main/js/tonghuashun-filter.js, requires-body=true, tag=同花顺-首页卡片过滤, argument=[{enable},{炒股大赛},{k线训练营},{全球机会},{自选股概览},{AI自选诊断},{投顾分析},{投资必读},{主编精选},{实时热点},{热点复盘},{业绩披露},{并购重组},{自选大事},{热门股票},{资金流入},{热门板块}]
+http-response ^https?://eq\.10jqka\.com\.cn/eq/open/api/homepage_v2/v3/(old_user|homepage_data) script-path=https://raw.githubusercontent.com/ajune0527/proxy-script/main/js/tonghuashun-filter.js, requires-body=true, tag=同花顺-首页卡片过滤(old_user), argument=[{enable},{炒股大赛},{k线训练营},{全球机会},{自选股概览},{AI自选诊断},{投顾分析},{投资必读},{主编精选},{实时热点},{热点复盘},{业绩披露},{并购重组},{自选大事},{热门股票},{资金流入},{热门板块},{每日复盘},{今天炒什么},{黄金},{涨停聚焦},{净利润断层}]
 
 [mitm]
 hostname = recommend.10jqka.com.cn, t.10jqka.com.cn, kuaicha.10jqka.com.cn, xtz.10jqka.com.cn, eq.10jqka.com.cn
