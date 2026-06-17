@@ -29,6 +29,8 @@ var ALL_CARD_TITLES = [
 ];
 
 try {
+    console.log("[同花顺过滤] 脚本开始执行");
+    console.log("[同花顺过滤] 参数: " + JSON.stringify($argument));
     // 检查总开关
     if ($argument.enable !== "true") {
         console.log("[同花顺过滤] 总开关已关闭，跳过过滤");
