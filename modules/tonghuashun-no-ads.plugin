@@ -1,19 +1,33 @@
-#!name = 同花顺净化
-#!desc = 拦截同花顺广告请求与首页多余卡片，支持独立开关控制
-#!author = ajune
-#!system = ios
-#!tag = 去广告
-#!loon_version = 3.2.0
-#!icon = https://raw.githubusercontent.com/ajune0527/proxy-script/main/tonghuashun.png
-#!homepage = https://github.com/ajune0527/proxy-script
-#!date = 2026-06-17 12:58:00
+#!name= 同花顺净化
+#!desc= 拦截同花顺广告请求，过滤首页多余卡片。每个卡片标题独立开关控制。
+#!author= ajune
+#!system= iOS
+#!tag= 去广告
+#!loon_version= 3.2.1(733)
+#!icon= https://raw.githubusercontent.com/ajune0527/proxy-script/main/tonghuashun.png
+#!homepage= https://github.com/ajune0527/proxy-script
+#!date= 2026-06-17 13:02:00
 
 [Argument]
-# 卡片过滤开关：把想移除的卡片设为 true
-# 以下选项均来自首页响应的 card_title 实际值
-argument = enable=true&炒股大赛=true&k线训练营=true&全球机会=true&自选股概览=false&AI自选诊断=false&投顾分析=false&投资必读=false&主编精选=false&实时热点=false&热点复盘=false&业绩披露=false&并购重组=false&自选大事=false&热门股票=false&资金流入=false&热门板块=false
+enable = switch,true,tag=启用卡片过滤,desc=关闭后不过滤首页任何卡片
+炒股大赛 = switch,true,tag=炒股大赛,desc=过滤首页「炒股大赛」卡片
+k线训练营 = switch,true,tag=k线训练营,desc=过滤首页「k线训练营」卡片
+全球机会 = switch,true,tag=全球机会,desc=过滤首页「全球机会」卡片
+自选股概览 = switch,false,tag=自选股概览,desc=过滤首页「自选股概览」卡片
+AI自选诊断 = switch,false,tag=AI自选诊断,desc=过滤首页「AI自选诊断」卡片
+投顾分析 = switch,false,tag=投顾分析,desc=过滤首页「投顾分析」卡片
+投资必读 = switch,false,tag=投资必读,desc=过滤首页「投资必读」卡片
+主编精选 = switch,false,tag=主编精选,desc=过滤首页「主编精选」卡片
+实时热点 = switch,false,tag=实时热点,desc=过滤首页「实时热点」卡片
+热点复盘 = switch,false,tag=热点复盘,desc=过滤首页「热点复盘」卡片
+业绩披露 = switch,false,tag=业绩披露,desc=过滤首页「业绩披露」卡片
+并购重组 = switch,false,tag=并购重组,desc=过滤首页「并购重组」卡片
+自选大事 = switch,false,tag=自选大事,desc=过滤首页「自选大事」卡片
+热门股票 = switch,false,tag=热门股票,desc=过滤首页「热门股票」卡片
+资金流入 = switch,false,tag=资金流入,desc=过滤首页「资金流入」卡片
+热门板块 = switch,false,tag=热门板块,desc=过滤首页「热门板块」卡片
 
-[Rule]
+[rule]
 # 拦截推荐流
 URL-REGEX,^https?://recommend\.10jqka\.com\.cn/app/discover/api/v1/recommend,REJECT
 # 拦截问董秘首页
@@ -27,9 +41,8 @@ URL-REGEX,^https?://eq\.10jqka\.com\.cn/download/survey\.txt,REJECT
 # 拦截搜索发现推荐
 URL-REGEX,^https?://eq\.10jqka\.com\.cn/operation/function/search_discovery/recommend/v1/list,REJECT
 
-[Script]
-# 首页卡片过滤 - 按 card_title 清理 floor_list.card_show_list
-http-response ^https?://eq\.10jqka\.com\.cn/eq/open/api/homepage_v2/v3/old_user script-path=https://raw.githubusercontent.com/ajune0527/proxy-script/main/js/tonghuashun-filter.js, requires-body=true, tag=同花顺-首页卡片过滤
+[script]
+http-response ^https?://eq\.10jqka\.com\.cn/eq/open/api/homepage_v2/v3/old_user script-path=https://raw.githubusercontent.com/ajune0527/proxy-script/main/js/tonghuashun-filter.js, requires-body=true, tag=同花顺-首页卡片过滤, argument=[{enable},{炒股大赛},{k线训练营},{全球机会},{自选股概览},{AI自选诊断},{投顾分析},{投资必读},{主编精选},{实时热点},{热点复盘},{业绩披露},{并购重组},{自选大事},{热门股票},{资金流入},{热门板块}]
 
-[MitM]
+[mitm]
 hostname = recommend.10jqka.com.cn, t.10jqka.com.cn, kuaicha.10jqka.com.cn, xtz.10jqka.com.cn, eq.10jqka.com.cn
