@@ -1,2 +1,16 @@
+# HSBC 汇丰银行
 DOMAIN,hsbc.edge.sdk.awswaf.com
+# 汇丰香港
 DOMAIN-KEYWORD,hsbc.com.hk
+DOMAIN-KEYWORD,hsbc.com
+# 汇丰中国
+DOMAIN-KEYWORD,hsbc.com.cn
+DOMAIN-KEYWORD,hsbcnet.com
+DOMAIN-KEYWORD,cn-banking.hsbc.com.cn
+# 汇丰新加坡
+DOMAIN-KEYWORD,hsbc.com.sg
+# 汇丰 App 在线客服 (LivePerson)
+DOMAIN-KEYWORD,liveperson.net
+DOMAIN-KEYWORD,lpsnmedia.net
+DOMAIN-KEYWORD,liveperson.com
+DOMAIN-KEYWORD,lprnd.net
