@@ -32,11 +32,11 @@ try {
     console.log("[同花顺过滤] 脚本开始执行");
     console.log("[同花顺过滤] 参数: " + JSON.stringify($argument));
     // 检查总开关
-    if ($argument.enable) {
-        console.log("[同花顺过滤] 总开关已关闭，跳过过滤");
-        $done({});
-        return;
-    }
+    // if ($argument.enable) {
+    //     console.log("[同花顺过滤] 总开关已关闭，跳过过滤");
+    //     $done({});
+    //     return;
+    // }
 
     // 解析每个卡片标题的开关，收集需要过滤的标题
     var filterTitles = [];
