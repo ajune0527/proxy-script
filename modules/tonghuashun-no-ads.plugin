@@ -1,17 +1,16 @@
 #!name = 同花顺净化
-#!desc = 拦截同花顺广告请求，过滤首页多余卡片（支持开关与自定义过滤标题）
+#!desc = 拦截同花顺广告请求与首页多余卡片，支持独立开关控制
 #!author = ajune
 #!system = ios
+#!tag = 去广告
+#!loon_version = 3.2.0
 #!icon = https://raw.githubusercontent.com/ajune0527/proxy-script/main/tonghuashun.png
 #!homepage = https://github.com/ajune0527/proxy-script
-#!category = tool
+#!date = 2026-06-17 12:58:00
 
-[General]
-bypass-tun = 0
-skip-proxy = 0
-force-http-engine = 0
-# 卡片过滤开关：把想移除的卡片设为 true 即可
-# 以下选项来自首页响应的 card_title 实际值
+[Argument]
+# 卡片过滤开关：把想移除的卡片设为 true
+# 以下选项均来自首页响应的 card_title 实际值
 argument = enable=true&炒股大赛=true&k线训练营=true&全球机会=true&自选股概览=false&AI自选诊断=false&投顾分析=false&投资必读=false&主编精选=false&实时热点=false&热点复盘=false&业绩披露=false&并购重组=false&自选大事=false&热门股票=false&资金流入=false&热门板块=false
 
 [Rule]
@@ -32,5 +31,5 @@ URL-REGEX,^https?://eq\.10jqka\.com\.cn/operation/function/search_discovery/reco
 # 首页卡片过滤 - 按 card_title 清理 floor_list.card_show_list
 http-response ^https?://eq\.10jqka\.com\.cn/eq/open/api/homepage_v2/v3/old_user script-path=https://raw.githubusercontent.com/ajune0527/proxy-script/main/js/tonghuashun-filter.js, requires-body=true, tag=同花顺-首页卡片过滤
 
-[MITM]
+[MitM]
 hostname = recommend.10jqka.com.cn, t.10jqka.com.cn, kuaicha.10jqka.com.cn, xtz.10jqka.com.cn, eq.10jqka.com.cn
