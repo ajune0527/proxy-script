@@ -31,7 +31,6 @@ AI自选诊断 = switch,false,tag=AI自选诊断,desc=过滤首页「AI自选诊
 黄金 = switch,false,tag=黄金,desc=过滤首页「黄金」卡片
 涨停聚焦 = switch,false,tag=涨停聚焦,desc=过滤首页「涨停聚焦」卡片
 净利润断层 = switch,false,tag=净利润断层,desc=过滤首页「净利润断层」卡片
-# 自定义过滤卡片，多个卡片用逗号分隔
 自定义过滤 = input, "自定义过滤卡片，多个卡片用逗号分隔", tag=自定义过滤,desc=自定义过滤卡片，多个卡片用逗号分隔
 
 
