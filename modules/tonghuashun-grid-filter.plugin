@@ -1,0 +1,71 @@
+#!name= 同花顺九宫格净化
+#!desc= 过滤首页九宫格(appIdInfo)中的推广/营销项目。每个项目标题独立开关控制。
+#!author= ajune
+#!system= iOS
+#!tag= 去广告
+#!loon_version= 3.2.1(733)
+#!icon= https://raw.githubusercontent.com/ajune0527/proxy-script/main/tonghuashun.png
+#!homepage= https://github.com/ajune0527/proxy-script
+#!date= 2026-06-27
+
+[Argument]
+九宫格过滤 = switch,true,tag=九宫格过滤,desc=关闭后不过滤首页九宫格任何项目
+股票开户 = switch,true,tag=股票开户,desc=过滤九宫格「股票开户」
+基金开户 = switch,true,tag=基金开户,desc=过滤九宫格「基金开户」
+期货开户 = switch,true,tag=期货开户,desc=过滤九宫格「期货开户」
+港股通开通 = switch,true,tag=港股通开通,desc=过滤九宫格「港股通开通」
+创业板开通 = switch,true,tag=创业板开通,desc=过滤九宫格「创业板开通」
+科创开通 = switch,true,tag=科创开通,desc=过滤九宫格「科创开通」
+两融开通 = switch,true,tag=两融开通,desc=过滤九宫格「两融开通」
+决策 = switch,true,tag=决策,desc=过滤九宫格「决策」
+金牛会员 = switch,true,tag=金牛会员,desc=过滤九宫格「金牛会员」
+智富会员 = switch,true,tag=智富会员,desc=过滤九宫格「智富会员」
+沪深Level2 = switch,true,tag=沪深Level2,desc=过滤九宫格「沪深Level2」
+神奇电波 = switch,true,tag=神奇电波,desc=过滤九宫格「神奇电波」
+短线宝 = switch,true,tag=短线宝,desc=过滤九宫格「短线宝」
+机构探测器 = switch,true,tag=机构探测器,desc=过滤九宫格「机构探测器」
+壹号研报 = switch,true,tag=壹号研报,desc=过滤九宫格「壹号研报」
+投顾服务 = switch,true,tag=投顾服务,desc=过滤九宫格「投顾服务」
+万和服务 = switch,true,tag=万和服务,desc=过滤九宫格「万和服务」
+太平洋服务 = switch,true,tag=太平洋服务,desc=过滤九宫格「太平洋服务」
+华创服务 = switch,true,tag=华创服务,desc=过滤九宫格「华创服务」
+平安服务 = switch,true,tag=平安服务,desc=过滤九宫格「平安服务」
+长江服务 = switch,true,tag=长江服务,desc=过滤九宫格「长江服务」
+长城服务 = switch,true,tag=长城服务,desc=过滤九宫格「长城服务」
+国金服务 = switch,true,tag=国金服务,desc=过滤九宫格「国金服务」
+华西服务 = switch,true,tag=华西服务,desc=过滤九宫格「华西服务」
+东北服务 = switch,true,tag=东北服务,desc=过滤九宫格「东北服务」
+东海服务 = switch,true,tag=东海服务,desc=过滤九宫格「东海服务」
+国投服务 = switch,true,tag=国投服务,desc=过滤九宫格「国投服务」
+中信建投服务 = switch,true,tag=中信建投服务,desc=过滤九宫格「中信建投服务」
+国融服务 = switch,true,tag=国融服务,desc=过滤九宫格「国融服务」
+国联民生服务 = switch,true,tag=国联民生服务,desc=过滤九宫格「国联民生服务」
+财信服务 = switch,true,tag=财信服务,desc=过滤九宫格「财信服务」
+国海服务 = switch,true,tag=国海服务,desc=过滤九宫格「国海服务」
+第一创业服务 = switch,true,tag=第一创业服务,desc=过滤九宫格「第一创业服务」
+兴业服务 = switch,true,tag=兴业服务,desc=过滤九宫格「兴业服务」
+兴业ETF宝典 = switch,true,tag=兴业ETF宝典,desc=过滤九宫格「兴业ETF宝典」
+国元VIP宝典 = switch,true,tag=国元VIP宝典,desc=过滤九宫格「国元VIP宝典」
+新用户礼包 = switch,true,tag=新用户礼包,desc=过滤九宫格「新用户礼包」
+斗地主 = switch,true,tag=斗地主,desc=过滤九宫格「斗地主」
+拜财神 = switch,true,tag=拜财神,desc=过滤九宫格「拜财神」
+积财运 = switch,true,tag=积财运,desc=过滤九宫格「积财运」
+选股转转乐 = switch,true,tag=选股转转乐,desc=过滤九宫格「选股转转乐」
+AI写诗 = switch,true,tag=AI写诗,desc=过滤九宫格「AI写诗」
+银证转账 = switch,true,tag=银证转账,desc=过滤九宫格「银证转账」
+股票开户记录 = switch,true,tag=股票开户记录,desc=过滤九宫格「股票开户记录」
+出国服务 = switch,true,tag=出国服务,desc=过滤九宫格「出国服务」
+人才招聘 = switch,true,tag=人才招聘,desc=过滤九宫格「人才招聘」
+涉企举报 = switch,true,tag=涉企举报,desc=过滤九宫格「涉企举报」
+友情链接 = switch,true,tag=友情链接,desc=过滤九宫格「友情链接」
+上证e投票 = switch,true,tag=上证e投票,desc=过滤九宫格「上证e投票」
+服务号 = switch,true,tag=服务号,desc=过滤九宫格「服务号」
+保险 = switch,true,tag=保险,desc=过滤九宫格「保险」
+九宫格自定义过滤 = input, "自定义过滤九宫格项目，多个用逗号分隔", tag=九宫格自定义过滤,desc=自定义过滤九宫格项目，多个用逗号分隔
+
+
+[script]
+http-response ^https?://eq\.10jqka\.com\.cn/eqadmin/tmp/indexFeed/iphone2\.txt script-path=https://raw.githubusercontent.com/ajune0527/proxy-script/main/js/tonghuashun-appidinfo-filter.js, requires-body=true, tag=同花顺-九宫格过滤, argument=[{九宫格过滤},{股票开户},{基金开户},{期货开户},{港股通开通},{创业板开通},{科创开通},{两融开通},{决策},{金牛会员},{智富会员},{沪深Level2},{神奇电波},{短线宝},{机构探测器},{壹号研报},{投顾服务},{万和服务},{太平洋服务},{华创服务},{平安服务},{长江服务},{长城服务},{国金服务},{华西服务},{东北服务},{东海服务},{国投服务},{中信建投服务},{国融服务},{国联民生服务},{财信服务},{国海服务},{第一创业服务},{兴业服务},{兴业ETF宝典},{国元VIP宝典},{新用户礼包},{斗地主},{拜财神},{积财运},{选股转转乐},{AI写诗},{银证转账},{股票开户记录},{出国服务},{人才招聘},{涉企举报},{友情链接},{上证e投票},{服务号},{保险},{九宫格自定义过滤}]
+
+[mitm]
+hostname = eq.10jqka.com.cn
