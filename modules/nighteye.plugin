@@ -1,7 +1,6 @@
 #!name= NightEye Pro
 #!desc= 解锁 NightEye 深色模式 Pro 功能，修改订阅状态为已激活，过期时间设为 2099 年。
 #!author= ajune
-#!system= iOS
 #!tag= 解锁
 #!loon_version= 3.2.1(733)
 #!icon= https://raw.githubusercontent.com/ajune0527/proxy-script/main/nighteye.png
