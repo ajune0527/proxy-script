@@ -1,0 +1,22 @@
+#!name= 致富Banner净化
+#!desc= 过滤致富APP首页Banner响应中的推广/营销项目。根据bannerConfig.nameSc过滤，每个项目独立开关控制。
+#!author= ajune
+#!system= iOS
+#!tag= 去广告
+#!loon_version= 3.2.1(733)
+#!icon= https://raw.githubusercontent.com/ajune0527/proxy-script/main/chief.png
+#!homepage= https://github.com/ajune0527/proxy-script
+#!date= 2026-08-04
+
+[Argument]
+Banner过滤 = switch,true,tag=Banner过滤,desc=关闭后不过滤首页Banner任何项目
+首页Banner-新版 = switch,true,tag=首页Banner-新版,desc=过滤Banner「首页Banner-新版」
+首页公告 = switch,false,tag=首页公告,desc=过滤Banner「首页公告」
+Banner自定义过滤 = input, "自定义过滤Banner项目，多个用逗号分隔", tag=Banner自定义过滤,desc=自定义过滤Banner项目，多个用逗号分隔
+
+
+[script]
+http-response ^https?://api2\.cm-chiefgroup\.com/chief-operations/api/v1/banner/get script-path=https://raw.githubusercontent.com/ajune0527/proxy-script/main/js/chief-banner-filter.js, requires-body=true, tag=致富-Banner过滤, argument=[{Banner过滤},{首页Banner-新版},{首页公告},{Banner自定义过滤}]
+
+[mitm]
+hostname = api2.cm-chiefgroup.com
