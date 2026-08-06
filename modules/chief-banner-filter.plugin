@@ -16,7 +16,7 @@ Banner自定义过滤 = input, "自定义过滤Banner项目，多个用逗号分
 
 
 [script]
-http-response ^https?://[^/]*(chief|zft2025)[^/]*\.(com|com\.hk)/chief-operations/api/v1/banner/get script-path=https://raw.githubusercontent.com/ajune0527/proxy-script/main/js/chief-banner-filter.js, requires-body=true, tag=致富-Banner过滤, argument=[{Banner过滤},{首页Banner-新版},{首页公告},{Banner自定义过滤}]
+http-response ^https?://[^/]*(chief|zft2025|zft2000)[^/]*\.(com|com\.hk)/chief-operations/api/v1/banner/get script-path=https://raw.githubusercontent.com/ajune0527/proxy-script/main/js/chief-banner-filter.js, requires-body=true, tag=致富-Banner过滤, argument=[{Banner过滤},{首页Banner-新版},{首页公告},{Banner自定义过滤}]
 
 [mitm]
-hostname = %APPEND% cm-chiefgroup.com, chiefgroup.com.hk, zft2025.com
+hostname = %APPEND% cm-chiefgroup.com, chiefgroup.com.hk, zft2025.com, zft2000.com
