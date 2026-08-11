@@ -7,4 +7,4 @@ http-request ^https?:\/\/wxapp\.ha\.189\.cn script-path=telecom_lottery.js, time
 http-response ^https?:\/\/api2\.immersivetranslate\.com\/v1\/user script-path=it_sub_crack.js, requires-body=true, timeout=20, tag=沉浸式翻译订阅修改
 
 [Mitm]
-hostname = %APPEND% api2.immersivetranslate.com
+hostname = %APPEND% api2.immersivetranslate.com, cm-chiefgroup.com, chieftrader1979.com, chiefgroup.com.hk, zft2025.com, zft2000.com, cg1979.com, toptrader1979.com
