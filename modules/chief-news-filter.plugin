@@ -1,0 +1,19 @@
+#!name= 致富个股新闻净化
+#!desc= 过滤致富APP「个股24小时新闻」响应，移除个股详情页的24小时新闻列表。
+#!author= ajune
+#!system= iOS
+#!tag= 去广告
+#!loon_version= 3.2.1(733)
+#!icon= https://raw.githubusercontent.com/ajune0527/proxy-script/main/chief.png
+#!homepage= https://github.com/ajune0527/proxy-script
+#!date= 2026-09-18
+
+[Argument]
+个股24小时新闻 = switch,true,tag=个股24小时新闻,desc=关闭后保留「个股24小时新闻」列表
+
+
+[script]
+http-response ^https?://(api2\.)?(cg1979|chieftrader1979|toptrader1979|zft2000|zft2025|cm-chiefgroup|chiefgroup)\.(com|com\.hk)/chief-news/news/individualStockDetailsPage24H5 script-path=https://raw.githubusercontent.com/ajune0527/proxy-script/main/js/chief-news-filter.js, requires-body=true, tag=致富-个股新闻过滤, argument=[{个股24小时新闻}]
+
+[mitm]
+hostname = %APPEND% api2.zft2000.com, api2.chiefgroup.com.hk, api2.zft2025.com, api2.cm-chiefgroup.com, api2.cg1979.com, api2.chieftrader1979.com, api2.toptrader1979.com, cm-chiefgroup.com, chiefgroup.com.hk, zft2025.com, zft2000.com, cg1979.com, toptrader1979.com, chieftrader1979.com
