@@ -10,6 +10,7 @@ Loon 插件 / 脚本集合。新增插件：往 `modules/` 放一个 `.plugin` �
 <!-- plugins:start -->
 | 插件 | 说明 | 一键安装 |
 | --- | --- | --- |
+| Baby Tracker 开屏广告拦截 | 屏蔽 Baby Tracker（com.bluemobile.babylife）的优量汇、穿山甲和 Google 广告请求。 | [安装](https://www.nsloon.com/openloon/import?plugin=https%3A%2F%2Fraw.githubusercontent.com%2Fajune0527%2Fproxy-script%2Frefs%2Fheads%2Fmain%2Fmodules%2Fbaby-tracker-no-ads.plugin) |
 | 致富运营位净化 | 过滤致富APP运营位（Banner）响应中的推广/营销项目。按 slotConfig.nameSc 过滤，每个运营位独立开关，支持自定义关键字。 | [安装](https://www.nsloon.com/openloon/import?plugin=https%3A%2F%2Fraw.githubusercontent.com%2Fajune0527%2Fproxy-script%2Frefs%2Fheads%2Fmain%2Fmodules%2Fchief-banner-filter.plugin) |
 | 致富个股新闻净化 | 过滤致富APP「个股24小时新闻」响应，移除个股详情页的24小时新闻列表。 | [安装](https://www.nsloon.com/openloon/import?plugin=https%3A%2F%2Fraw.githubusercontent.com%2Fajune0527%2Fproxy-script%2Frefs%2Fheads%2Fmain%2Fmodules%2Fchief-news-filter.plugin) |
 | 自定义脚本合集 | 电信抽奖 + 沉浸式翻译订阅修改 | [安装](https://www.nsloon.com/openloon/import?plugin=https%3A%2F%2Fraw.githubusercontent.com%2Fajune0527%2Fproxy-script%2Frefs%2Fheads%2Fmain%2Fmodules%2Fcustom-scripts.plugin) |

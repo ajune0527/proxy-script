@@ -1,0 +1,25 @@
+#!name= Baby Tracker 开屏广告拦截
+#!desc= 屏蔽 Baby Tracker（com.bluemobile.babylife）的优量汇、穿山甲和 Google 广告请求。
+#!author= ajune
+#!system= iOS
+#!tag= 去广告
+#!loon_version= 3.2.1(733)
+#!homepage= https://github.com/ajune0527/proxy-script
+#!date= 2026-09-21
+
+[Rule]
+# 优量汇（腾讯广告）
+DOMAIN-SUFFIX,gdt.qq.com,REJECT
+DOMAIN-SUFFIX,gdtimg.com,REJECT
+DOMAIN-SUFFIX,gdtimg.cn,REJECT
+# 穿山甲（字节跳动）
+DOMAIN-SUFFIX,pangle.cn,REJECT
+DOMAIN-SUFFIX,pangle.io,REJECT
+DOMAIN-SUFFIX,pangolin-sdk-toutiao.com,REJECT
+DOMAIN-SUFFIX,byteimg.com,REJECT
+# Google 广告
+DOMAIN-SUFFIX,doubleclick.net,REJECT
+DOMAIN-SUFFIX,doubleclick-cn.net,REJECT
+DOMAIN-SUFFIX,googlesyndication.com,REJECT
+DOMAIN-SUFFIX,googleadservices.com,REJECT
+DOMAIN,admob-gmats.uc.r.appspot.com,REJECT
