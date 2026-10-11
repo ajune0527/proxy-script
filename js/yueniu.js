@@ -16,68 +16,88 @@ const syncPath = "/user/sync-central-token";
 let token = "";
 
 if ($request && $request.headers) {
-    // 兼容请求头大小写问题
-    token = $request.headers['centraltoken'] || $request.headers['Centraltoken'] || $request.headers['CentralToken'] || $request.headers['centralToken'] || "";
+  // 兼容请求头大小写问题
+  token =
+    $request.headers["centraltoken"] ||
+    $request.headers["Centraltoken"] ||
+    $request.headers["CentralToken"] ||
+    $request.headers["centralToken"] ||
+    "";
+}
+
+// 如果请求头包含 cc 字段且值为 wf，则跳过，不进行任何操作
+let ccValue = $request.headers["cc"] || "";
+if (ccValue === "wf") {
+  console.log(`[约牛] 请求头 cc 为 wf，跳过`);
+  $done({});
 }
 
 if (!token) {
-    console.log(`[约牛] 未能在 Headers 中找到 centraltoken，跳过`);
-    $done({});
+  console.log(`[约牛] 未能在 Headers 中找到 centraltoken，跳过`);
+  $done({});
 } else {
-    let oldToken = $persistentStore.read(keyName);
-    let needWrite = token !== oldToken;
+  let oldToken = $persistentStore.read(keyName);
+  let needWrite = token !== oldToken;
 
-    if (needWrite) {
-        let success = $persistentStore.write(token, keyName);
-        if (success) {
-            console.log(`[约牛] 成功获取并更新 centraltoken: ${token}`);
-        } else {
-            console.log(`[约牛] 持久化保存 centraltoken 失败`);
+  if (needWrite) {
+    let success = $persistentStore.write(token, keyName);
+    if (success) {
+      console.log(`[约牛] 成功获取并更新 centraltoken: ${token}`);
+    } else {
+      console.log(`[约牛] 持久化保存 centraltoken 失败`);
+    }
+  } else {
+    console.log(`[约牛] 检测到 centraltoken，与本地一致，跳过写入`);
+    return;
+  }
+
+  let apiHost = $persistentStore.read(apiHostKey);
+  let paramKey = $persistentStore.read(paramKeyName);
+
+  if (!apiHost) {
+    console.log(`[约牛] 未读取到 ${apiHostKey}，无法同步 Token 到远程`);
+    $notification.post("【阅牛】Token 同步失败", "", `未配置 ${apiHostKey}`);
+    $done({});
+  } else if (!paramKey) {
+    console.log(`[约牛] 未读取到 ${paramKeyName}，无法同步 Token 到远程`);
+    $notification.post("【阅牛】Token 同步失败", "", `未配置 ${paramKeyName}`);
+    $done({});
+  } else {
+    let url = apiHost.replace(/\/+$/, "") + syncPath;
+
+    $httpClient.post(
+      {
+        url: url,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          key: paramKey,
+          central_token: token,
+        }),
+      },
+      function (error, response, data) {
+        if (error) {
+          console.log(`[约牛] Token 同步失败: ${error}`);
+          $notification.post("【阅牛】Token 同步失败", "", `${error}`);
+          $done({});
+          return;
         }
-    } else {
-        console.log(`[约牛] 检测到 centraltoken，与本地一致，跳过写入`);
-    }
 
-    let apiHost = $persistentStore.read(apiHostKey);
-    let paramKey = $persistentStore.read(paramKeyName);
+        let status = response && response.status ? response.status : 0;
+        console.log(`[约牛] Token 同步响应 ${status}: ${data}`);
 
-    if (!apiHost) {
-        console.log(`[约牛] 未读取到 ${apiHostKey}，无法同步 Token 到远程`);
-        $notification.post("【阅牛】Token 同步失败", "", `未配置 ${apiHostKey}`);
+        if (status >= 200 && status < 300) {
+          $notification.post(
+            "【阅牛】Token 同步成功",
+            "",
+            needWrite ? `新 Token 已保存并同步至远程` : `Token 已同步至远程`,
+          );
+        } else {
+          $notification.post("【阅牛】Token 同步失败", "", `HTTP ${status}`);
+        }
         $done({});
-    } else if (!paramKey) {
-        console.log(`[约牛] 未读取到 ${paramKeyName}，无法同步 Token 到远程`);
-        $notification.post("【阅牛】Token 同步失败", "", `未配置 ${paramKeyName}`);
-        $done({});
-    } else {
-        let url = apiHost.replace(/\/+$/, "") + syncPath;
-
-        $httpClient.post({
-            url: url,
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                key: paramKey,
-                central_token: token
-            })
-        }, function (error, response, data) {
-            if (error) {
-                console.log(`[约牛] Token 同步失败: ${error}`);
-                $notification.post("【阅牛】Token 同步失败", "", `${error}`);
-                $done({});
-                return;
-            }
-
-            let status = response && response.status ? response.status : 0;
-            console.log(`[约牛] Token 同步响应 ${status}: ${data}`);
-
-            if (status >= 200 && status < 300) {
-                $notification.post("【阅牛】Token 同步成功", "", needWrite ? `新 Token 已保存并同步至远程` : `Token 已同步至远程`);
-            } else {
-                $notification.post("【阅牛】Token 同步失败", "", `HTTP ${status}`);
-            }
-            $done({});
-        });
-    }
+      },
+    );
+  }
 }
