@@ -6,8 +6,8 @@
 #!date = 2026-06-09
 
 [Script]
-# 拦截请求获取 Headers，注意替换你自己的远程 JS 地址
-http-request ^https?://touguapi\.zx093\.com script-path=https://raw.githubusercontent.com/ajune0527/proxy-script/main/js/yueniu.js, requires-body=false, tag=获取约牛Token
+# 新版 Script 语法（Loon 3.5.1 983+）：在请求头阶段读取 centraltoken
+request if ${url} ~= /^https:\/\/touguapi\.zx093\.com/i then script("https://raw.githubusercontent.com/ajune0527/proxy-script/main/js/yueniu.js") with tag="获取约牛Token", debug=true
 
 [Mitm]
-hostname = %APPEND% touguapi.zx093.com
+hostname = touguapi.zx093.com
