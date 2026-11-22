@@ -1,7 +1,7 @@
 #!name = 约牛 Token 自动获取
 #!desc = 自动抓取 touguapi.zx093.com 请求头中的 centraltoken 并持久化到本地本地变量 yueniu 中。
 #!author = AI Collaborator
-#!homepage = https://github.com
+#!homepage = https://github.com/ajune0527/proxy-script
 #!icon = https://raw.githubusercontent.com/luestr/Icon-set/main/App_icon/120px/Netease.png
 #!date = 2026-06-09
 
