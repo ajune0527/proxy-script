@@ -30,6 +30,7 @@ let ccValue = $request.headers["cc"] || "";
 if (ccValue === "wf") {
   console.log(`[约牛] 请求头 cc 为 wf，跳过`);
   $done({});
+  return;
 }
 
 if (!token) {
@@ -48,6 +49,7 @@ if (!token) {
     }
   } else {
     console.log(`[约牛] 检测到 centraltoken，与本地一致，跳过写入`);
+    $done({});
     return;
   }
 
